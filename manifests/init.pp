@@ -27,9 +27,9 @@ class disable_ctrlaltdel {
             case $::operatingsystemrelease {
                 /^6\..*/: { require disable_ctrlaltdel::rhel6 }
                 /^5\..*/: { require disable_ctrlaltdel::rhel5 }
-                default:  { unimplemented() }
+                default:  { fail "unimplemented on ${::osfamily} ${::operatingsystemrelease}" }
             }
         }
-        default: { unimplemented() }
+        default: { fail "unimplemented on ${::osfamily}" }
     }
 }
